@@ -1,0 +1,44 @@
+{
+	"name": "Todo App",
+	"image": "mcr.microsoft.com/devcontainers/base:jammy",
+	"runArgs": [
+		"--name=${localEnv:USER}${localEnv:USERNAME}_devcontainer_todo"
+	],
+	"features": {
+		"ghcr.io/devcontainers/features/azure-cli:1": {},
+		"ghcr.io/devcontainers/features/java:1": {},
+		"ghcr.io/dapr/cli/dapr-cli:0": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	},
+	"mounts": [
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/was/.ssh,type=bind,consistency=cached",
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.m2,target=/home/was/.m2,type=bind,consistency=cached"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"redhat.vscode-xml",
+				"redhat.vscode-yaml",
+				"SonarSource.sonarlint-vscode",
+				"vscjava.vscode-java-pack",
+				"vscjava.vscode-lombok",
+				"Postman.postman-for-vscode",
+				"ms-azuretools.vscode-dapr",
+				"mutantdino.resourcemonitor"
+			],
+			"settings": {
+				"editor.bracketPairColorization.enabled": true,
+				"editor.insertSpaces": true,
+				"editor.detectIndentation": false,
+				"editor.tabSize": 2,
+				"files.encoding": "utf8",
+				"files.eol": "\n",
+				"terminal.integrated.scrollback": 20000,
+				"[jsonc]": {
+					"editor.defaultFormatter": "vscode.json-language-features",
+					"editor.tabSize": 4
+				}
+			}
+		}
+	}
+}
